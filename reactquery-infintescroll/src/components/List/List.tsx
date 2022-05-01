@@ -26,7 +26,7 @@ const List = () => {
       //scrollHeight : 전체 height
       //scrollTop : 최상단에서부터 현재위치까지의 height
       //clientHeight : 사용자의 화면 height
-      console.log(scrollHeight, scrollTop, clientHeight);
+
       //clientHeight의 1.5배만큼 내려왔을때 fetchNextPage 가 찍히고 fetching이 멈춘다.
       if (!fetching && scrollHeight - scrollTop <= clientHeight * 1.5) {
         fetching = true;
@@ -42,15 +42,16 @@ const List = () => {
   }, []);
 
   return (
-    <section>
+    <section className="mt-4">
       <ul>
         {data?.pages.map((page) => {
           return page.data.items.map((repo: any) => {
             return (
-              <li key={repo.id}>
-                <p>
-                  <b>{repo.name}</b>
-                </p>
+              <li
+                className=" shadow cursor-pointer rounded-[8px] m-4 p-4 transition hover:scale-[1.01]"
+                key={repo.id}
+              >
+                <h3 className="text-xl font-[500]"> 📚 {repo.name}</h3>
                 <p>{repo.description}</p>
               </li>
             );

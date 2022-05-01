@@ -9,13 +9,13 @@ function App() {
   });
 
   return (
-    <main>
+    <>
       <QueryClientProvider client={queryClient}>
         <React.Suspense fallback="Loading">
           <Main />
         </React.Suspense>
       </QueryClientProvider>
-    </main>
+    </>
   );
 }
 
