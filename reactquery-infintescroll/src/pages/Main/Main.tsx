@@ -5,11 +5,11 @@ import List from "../../components/List/List";
 
 const Main = () => {
   return (
-    <>
+    <main className="p-4">
       <Header />
       <List />
       <Footer />
-    </>
+    </main>
   );
 };
 
