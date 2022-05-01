@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
 import { getAllData } from "../../api/getAllData";
+import Loading from "../Loading/Loading";
 
 const List = () => {
   // const { data } = useQuery("repository", getAllData);
@@ -41,22 +42,33 @@ const List = () => {
     };
   }, []);
 
+  // console.log(
+  //   "asdfasdf",
+  //   data,
+  //   // hasNextPage,
+  //   // fetchNextPage(),
+  //   isFetchingNextPage
+  // );
+
   return (
     <section className="mt-4">
       <ul>
-        {data?.pages.map((page) => {
-          return page.data.items.map((repo: any) => {
+        {data?.pages?.map((page) => {
+          return page?.items.map((repo: any, idx: number) => {
             return (
               <li
                 className=" shadow cursor-pointer rounded-[8px] m-4 p-4 transition hover:scale-[1.01]"
                 key={repo.id}
               >
                 <h3 className="text-xl font-[500]"> 📚 {repo.name}</h3>
-                <p>{repo.description}</p>
+                <p>
+                  {idx + 1}_{repo.description}
+                </p>
               </li>
             );
           });
         })}
+        {/* <Loading /> */}
         {/* {data?.data?.items?.map((repo: any) => {
           return (
             <li key={repo.id}>
