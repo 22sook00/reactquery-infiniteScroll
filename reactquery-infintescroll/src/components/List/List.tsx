@@ -10,6 +10,7 @@ const List = () => {
     {
       // getNextPageParam: (lastPage, allPages) => lastPage.nextCursor,
       getNextPageParam: (lastPage, allPages) => {
+        // console.log("allPages", lastPage, allPages);
         const maxPages = lastPage.data?.total_count / 30;
         const nextPage = allPages.length + 1;
         return nextPage <= maxPages ? nextPage : undefined;
